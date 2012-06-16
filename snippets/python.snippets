@@ -19,7 +19,8 @@ snippet for
 # New Class
 snippet cl
 	class ${1:ClassName}(${2:object}):
-		"""${3:docstring for $1}"""
+		"""${3:docstring for $1}.
+		"""
 		def __init__(self, ${4:arg}):
 			${5:super($1, self).__init__()}
 			self.$4 = $4
@@ -27,15 +28,16 @@ snippet cl
 # New Function
 snippet def
 	def ${1:fname}(${2:`indent('.') ? 'self' : ''`}):
-		"""${3:docstring for $1}"""
-		${4:pass}
+		"""${3:docstring for $1}.
+		"""
+		${4:raise NotImplementedError}
 snippet deff
 	def ${1:fname}(${2:`indent('.') ? 'self' : ''`}):
-		${3}
+		${3:raise NotImplementedError}
 # New Method
 snippet defs
 	def ${1:mname}(self, ${2:arg}):
-		${3:pass}
+		${3:raise NotImplementedError}
 # New Property
 snippet property
 	def ${1:foo}():
@@ -78,16 +80,51 @@ snippet try Try/Except/Else/Finally
 	finally:
 		${6:pass}
 # if __name__ == '__main__':
-snippet ifmain
+snippet ifname
 	if __name__ == '__main__':
 		${1:main()}
 # __magic__
 snippet _
 	__${1:init}__${2}
 snippet todo
-	# TODO(WEI): ${1}
+	# TODO(wei): ${1}
 snippet inter
 	import code; code.interact(local=locals())
-snippet ppr
-  from pprint import pprint
-  pprint(${1})
+snippet pdb
+	import pdb; pdb.set_trace()
+snippet pprint
+	from pprint import pprint
+	pprint(${1})
+
+# Tests
+snippet moxtest
+	"""Tests ${1:module}.
+	"""
+	import unittest
+
+	import mox
+
+	class ${2:name}TestCase(mox.MoxTestBase):
+		"""Test case for $1.
+		"""
+		def setUp(self):
+			"""Set up common unit test state.
+			"""
+			mox.MoxTestBase.setUp(self)
+
+		def tearDown(self):
+			"""Clean up common unit test state.
+			"""
+			mox.MoxTestBase.tearDown(self)
+			self.mox.UnsetStubs()
+			self.mox.ResetAll()
+
+
+	if __name__ == '__main__':
+		unittest.main()
+
+snippet pvar
+	print '${1:var}: %s' % ${1}
+snippet merchid
+  merchant_id - Merchant account ID.
+

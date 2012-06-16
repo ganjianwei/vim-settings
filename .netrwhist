@@ -1,6 +1,6 @@
 let g:netrw_dirhistmax  =10
 let g:netrw_dirhist_cnt =4
-let g:netrw_dirhist_1='/Users/jianweigan/tellapart/py/tellapart'
-let g:netrw_dirhist_2='/Users/jianweigan/tellapart/py/tellapart/frontend'
-let g:netrw_dirhist_3='/Users/jianweigan/tellapart/py/tellapart'
-let g:netrw_dirhist_4='/Users/jianweigan/tellapart/py/tellapart/frontend'
+let g:netrw_dirhist_1='/Users/jianweigan/.vim'
+let g:netrw_dirhist_2='/Users/jianweigan'
+let g:netrw_dirhist_3='/Users/jianweigan/tellapart/py/tellapart/frontend/offers'
+let g:netrw_dirhist_4='/Users/jianweigan/tellapart/selenium/scripts'
