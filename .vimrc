@@ -1,9 +1,7 @@
 cd /Users/jianweigan/tellapart
 
 syntax enable
-set background=dark
-"colorscheme solarized
-colorscheme slate
+set background=light
 
 if !&diff && has('gui_running')
   " Don't show toolbar
@@ -39,6 +37,9 @@ augroup myfiletypes
     autocmd FileType ruby,eruby,yaml set ai sw=2 sts=2 et
 augroup END
 
+" JSON syntax highlighting
+au! BufRead,BufNewFile *.json set filetype=json
+
 " Python from http://wiki.python.org/moin/Vim
 autocmd BufRead,BufNewFile *.py syntax on
 autocmd BufRead,BufNewFile *.py set ai
@@ -67,7 +68,6 @@ set guicursor=n-v-c:block-Cursor/lCursor,ve:ver35-Cursor,o:hor50-Cursor,i-ci:ver
 
 "" Solarized color scheme
 let g:solarized_termcolors=16
-set background=light
 colorscheme solarized
 
 " Toggle between dark and light backgrounds with F5
