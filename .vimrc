@@ -1,4 +1,7 @@
-cd /Users/jianweigan/tellapart
+" Source custom machine-specific vim settings.
+if filereadable("machine_specific.vim")
+  so machine_specific.vim
+endif
 
 syntax enable
 set background=light
