@@ -1,8 +1,3 @@
-" Source custom machine-specific vim settings.
-if filereadable("machine_specific.vim")
-  so machine_specific.vim
-endif
-
 syntax enable
 set background=light
 
@@ -127,3 +122,13 @@ let g:pymode_utils_whitespaces = 0
 
 command! PytestOff %s/def test/def xtest/g
 command! PytestOn %s/def xtest/def test/g
+
+"------------------------------------------------------------------------------
+" Local settings.
+"------------------------------------------------------------------------------
+
+" Source a local configuration file if available.
+if filereadable(expand("~/.vimrc.local"))
+  source ~/.vimrc.local
+endif
+
