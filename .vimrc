@@ -5,7 +5,6 @@ if !&diff && has('gui_running')
   " Don't show toolbar
   set guioptions=egmrt
   set guioptions=ace
-  set guifont=Menlo:h13
   set colorcolumn=80
 
   " Only run pathogen in MacVim
@@ -35,6 +34,12 @@ augroup myfiletypes
     autocmd FileType ruby,eruby,yaml set ai sw=2 sts=2 et
 augroup END
 
+" Git commit textwidth
+autocmd Filetype gitcommit setlocal spell textwidth=72
+
+" Handlerbars syntax highlighting
+au BufRead,BufNewFile *.handlebars,*.hbs set ft=html syntax=handlebars
+
 " JSON syntax highlighting
 au! BufRead,BufNewFile *.json set filetype=json
 
@@ -60,7 +65,7 @@ set shiftwidth=2
 set softtabstop=2
 
 "set guifont=Bitstream\ Vera\ Sans\ Mono:h14
-set guifont=Ubuntu\ Mono:h16
+set guifont=Ubuntu\ Mono:h14
 set number
 set guicursor=n-v-c:block-Cursor/lCursor,ve:ver35-Cursor,o:hor50-Cursor,i-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor,sm:block-Cursor-blinkwait175-blinkoff150-blinkon175
 
@@ -93,16 +98,26 @@ set noautochdir
 " Delete trailing whitespace on file write
 autocmd BufWritePre * :%s/\s\+$//e
 
+"" Not using CommandT. Replaced with ctrlP.
 " Only show 15 lines for CommandT
 let g:CommandTMaxHeight = 15
-
 " CommandT max should be set to > no. of files in TA directory.
 let g:CommandTMaxFiles=20000
 
-" :W and quit variants should do the same thing as :w since it's so easy to mistype
-"command! W w
-"command! Wq wq
-"command! WQ wq
+" Ctrl P
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+
+"" Set path to vim cwd.
+let g:ctrlp_working_path_mode = ''
+
+let g:ctrlp_map = "\<Leader>t"
+let g:ctrlp_switch_buffer = ''
+let g:ctrlp_match_window = 'results:30'
+let g:ctrlp_max_files = 20000
+
+" Ignore files.
+set wildignore+=*.pyc,*.zip,*.gz,*.bz,*.tar,*.jpg,*.png,*.gif,*.avi,*.wmv,*.ogg,*.mp3,*.mov,*.class
+set wildignore+=*/tellapart/third_party/tungsten/*
 
 " Key mappings
 imap jj <Esc>

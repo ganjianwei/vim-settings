@@ -118,16 +118,22 @@ snippet moxtest
 			"""Clean up common unit test state.
 			"""
 			mox.MoxTestBase.tearDown(self)
-			self.mox.UnsetStubs()
-			self.mox.ResetAll()
 
 
 	if __name__ == '__main__':
 		unittest.main()
-
 snippet pvar
 	print '${1:var}: %s' % ${1}
 
 snippet merch_id
 	merchant_id - Merchant account ID.
 
+snippet merch
+	merchant - Merchant account ID.
+
+snippet importids
+	from tellapart_gen.serverlog.ids import constants as ids
+
+snippet printtrace
+  import traceback
+	traceback.print_stack()

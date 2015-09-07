@@ -2,3 +2,5 @@
 *.swp
 
 machine_specific.vim
+*.pyc
+*.pyo
